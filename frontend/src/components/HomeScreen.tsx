@@ -17,13 +17,13 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <View>
-            <View style={{display: "flex", flexDirection: "row"}}>
-                <Image style={[styles.logoSmall, {marginLeft: "3rem", marginRight: "0rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/MedifinderLogo.svg')} />
-                <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Account.svg')} />
-                <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginRight: "3rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Settings.svg')} />
-            </View>
-            <TouchableWithoutFeedback onPress={() => console.log("false")}>
+            <TouchableWithoutFeedback onPress={() => setDoctor(false)}>
                 <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
+                    <View style={{display: "flex", flexDirection: "row"}}>
+                        <Image style={[styles.logoSmall, {marginLeft: "3rem", marginRight: "0rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/MedifinderLogo.svg')} />
+                        <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Account.svg')} />
+                        <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginRight: "3rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Settings.svg')} />
+                    </View>
                 <View>
                     <Text style={styles.title}>Vítejte v appce</Text>
                     <View>
@@ -40,7 +40,7 @@ const HomeScreen = ({navigation}) => {
             </TouchableWithoutFeedback>
             <View style={doctor ? {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'} : {display: "none"}}>
                 <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchfield"); setDoctor(false)}}>
-                    <Image style={[styles.logo, {marginBottom: "4.5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
+                    <Image style={[styles.logo, {marginBottom: "2rem", marginTop: "5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchdiagnosis"); setDoctor(false)}}>
                     <Image style={styles.logo} source={require('../../assets/docDiagnosisSearch.svg')} />

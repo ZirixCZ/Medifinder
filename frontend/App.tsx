@@ -14,6 +14,7 @@ function App() {
         <View style={{backgroundColor: "white"}}>
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}}>
+                <Stack.Screen name="home" component={HomeScreen} />
                 <Stack.Screen name="docsearchdiagnosis" component={DocSearchDiagnosis} />
                 <Stack.Screen name="pokus" component={PokusScreen} />
                 <Stack.Screen name="docsearchfield" component={DocSearchField} />
