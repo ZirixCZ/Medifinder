@@ -19,7 +19,12 @@ const HomeScreen = ({navigation}) => {
         <View>
             <TouchableWithoutFeedback onPress={() => console.log("false")}>
             <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
-                <Header header="Vítejte v appce" subHeader="Najděte lékaře ve svém okolí podle oboru nebo vaší samodiagnózy díky našemu průvodci."/>
+                <View>
+                    <Text style={styles.title}>Vítejte v appce</Text>
+                    <View>
+                        <Text style={styles.paragraph}>Najděte lékaře ve svém okolí podle oboru nebo vaší samodiagnózy díky našemu průvodci.</Text>
+                    </View>
+                </View>
                 <View style={styles.centerContainer}>
                     <TouchableWithoutFeedback onPress={() => setDoctor(!doctor)}>
                         <Image style={styles.logo} source={require('../../assets/DocSearch.svg')} />
