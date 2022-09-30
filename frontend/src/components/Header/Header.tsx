@@ -3,29 +3,11 @@ import React from "react";
 
 const Header = (props) => {
     return (
-        <View>
-            <Text style={styles.title}>{props.header}</Text>
-            <View>
-                <Text style={styles.paragraph}>{props.subHeader}</Text>
-            </View>
+        <View style={{paddingLeft: 15, paddingRight: 0}}>
+            <Text style={{fontSize: 24, fontWeight: "bold", paddingBottom: 20}}>{props.header}</Text>
+            <Text style={{fontSize: 16, color: "gray", width: "90%"}}>{props.subHeader}</Text>
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    paragraph: {
-        fontWeight: "500",
-        fontSize: 16,
-        color: "gray",
-        marginLeft: "3rem",
-        width: "75%",
-    },
-    title: {
-        fontWeight: "900",
-        fontSize: 32,
-        margin: "3rem",
-        marginBottom: "1rem"
-    },
-});
 
 export default Header;
