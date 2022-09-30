@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import HomeScreen from "./src/components/HomeScreen";
 import PokusScreen from "./src/components/PokusScreen";
 import DocSearchField from "./src/components/DocSearchField";
-import DocSearchDiagnosis from "./src/components/DocSearchDiagosis";
+import DocSearchDiagnosis from "./src/components/DocSearchDiagnosis";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +14,6 @@ function App() {
         <View style={{backgroundColor: "white"}}>
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}}>
-                <Stack.Screen name="home" component={HomeScreen} />
                 <Stack.Screen name="docsearchdiagnosis" component={DocSearchDiagnosis} />
                 <Stack.Screen name="pokus" component={PokusScreen} />
                 <Stack.Screen name="docsearchfield" component={DocSearchField} />

@@ -9,7 +9,7 @@ const DocSearchDiagnosis = ({navigation}) => {
 
             <Navbar navigation={navigation}>
                 <View>
-                    <Header header="Hledat lékaře\npomocí samodiagnózy"
+                    <Header header={"Hledat lékaře\npomocí samodiagnózy"}
                             subHeader="Hledejte lékaře podle zadání vlastní diagnózy z nabídky."/>
                 </View>
                 <View style={{
@@ -20,9 +20,8 @@ const DocSearchDiagnosis = ({navigation}) => {
                     alignItems: "center"
                 }}>
                     <View style={styles.warningSquare}>
-                        <Image style={[styles.logoInline, {marginBottom: "4.5rem"}]} source={require('../../assets/TriangleWarning.svg')} />
-
-                        <Text style={[styles.text, {fontSize: 14, width: "15rem"}]}>Výsledky diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte zde pro více info.</Text>
+                        <Image style={styles.logoInline} source={require('../../assets/TriangleWarning.svg')} />
+                        <Text style={[styles.text, {fontSize: 14, lineHeight: 17, width: "15rem"}]}>Výsledky diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte zde pro více info.</Text>
                     </View>
                     <Pressable style={styles.button}>
                         <Text style={styles.text}>Pokračovat</Text>
@@ -57,11 +56,11 @@ const styles = StyleSheet.create({
         borderRadius: 32,
         marginBottom: "2rem",
         width: "20rem",
-        height: "8rem",
+        height: "6rem",
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "space-evenly"
     },
     button: {
         alignItems: 'center',
