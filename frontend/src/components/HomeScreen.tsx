@@ -1,5 +1,13 @@
 import React, {useState, useEffect} from "react";
-import {Button, Image, StyleSheet, Text, TouchableHighlight, View} from "react-native";
+import {
+    Button,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableHighlight, TouchableWithoutFeedback,
+    TouchableWithoutFeedbackComponent,
+    View
+} from "react-native";
 import {colorRed} from "../constants";
 
 const HomeScreen = ({navigation}) => {
@@ -8,6 +16,7 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <View>
+            <TouchableWithoutFeedback onPress={() => console.log("false")}>
             <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
                 <Text style={styles.title}>Vítejte v appce</Text>
                 <View style={styles.paragraphContainer}>
@@ -15,14 +24,20 @@ const HomeScreen = ({navigation}) => {
                         našemu průvodci.</Text>
                 </View>
                 <View style={styles.centerContainer}>
-                    <TouchableHighlight onPress={() => setDoctor(!doctor)}>
+                    <TouchableWithoutFeedback onPress={() => setDoctor(!doctor)}>
                         <Image style={styles.logo} source={require('../../assets/DocSearch.svg')} />
-                    </TouchableHighlight>
+                    </TouchableWithoutFeedback>
                     <Image style={styles.logo} source={require('../../assets/DocMaps.svg')} />
                 </View>
-                <View style={doctor ? {display: "flex"} : {display: "none"}}>
-                    <Image style={styles.logo} source={require('../../assets/DocMaps.svg')} />
-                </View>
+            </View>
+            </TouchableWithoutFeedback>
+            <View style={doctor ? {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'} : {display: "none"}}>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate("docsearchfield")}>
+                    <Image style={[styles.logo, {marginBottom: "4.5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate("docsearchdiagnosis")}>
+                    <Image style={styles.logo} source={require('../../assets/docFieldSearch.svg')} />
+                </TouchableWithoutFeedback>
             </View>
         </View>
     );
