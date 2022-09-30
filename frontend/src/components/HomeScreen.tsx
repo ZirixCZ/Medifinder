@@ -9,6 +9,7 @@ import {
     View
 } from "react-native";
 import {colorRed} from "../constants";
+import Header from "./Header/Header";
 
 const HomeScreen = ({navigation}) => {
 
@@ -18,11 +19,7 @@ const HomeScreen = ({navigation}) => {
         <View>
             <TouchableWithoutFeedback onPress={() => console.log("false")}>
             <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
-                <Text style={styles.title}>Vítejte v appce</Text>
-                <View style={styles.paragraphContainer}>
-                    <Text style={styles.paragraph}>Najděte lékaře ve svém okolí podle oboru nebo vaší samodiagnózy díky
-                        našemu průvodci.</Text>
-                </View>
+                <Header header="Vítejte v appce" subHeader="Najděte lékaře ve svém okolí podle oboru nebo vaší samodiagnózy díky našemu průvodci."/>
                 <View style={styles.centerContainer}>
                     <TouchableWithoutFeedback onPress={() => setDoctor(!doctor)}>
                         <Image style={styles.logo} source={require('../../assets/DocSearch.svg')} />
@@ -32,11 +29,11 @@ const HomeScreen = ({navigation}) => {
             </View>
             </TouchableWithoutFeedback>
             <View style={doctor ? {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'} : {display: "none"}}>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate("docsearchfield")}>
+                <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchfield"); setDoctor(false)}}>
                     <Image style={[styles.logo, {marginBottom: "4.5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
                 </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback onPress={() => navigation.navigate("docsearchdiagnosis")}>
-                    <Image style={styles.logo} source={require('../../assets/docFieldSearch.svg')} />
+                <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchdiagnosis"); setDoctor(false)}}>
+                    <Image style={styles.logo} source={require('../../assets/docDiagnosisSearch.svg')} />
                 </TouchableWithoutFeedback>
             </View>
         </View>

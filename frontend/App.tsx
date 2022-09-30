@@ -11,6 +11,7 @@ const Stack = createNativeStackNavigator();
 
 function App() {
     return (
+        <View style={{backgroundColor: "white"}}>
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}}>
                 <Stack.Screen name="home" component={HomeScreen} />
@@ -19,6 +20,8 @@ function App() {
                 <Stack.Screen name="docsearchdiagnosis" component={DocSearchDiagnosis} />
             </Stack.Navigator>
         </NavigationContainer>
+        </View>
+
     );
 }
 
