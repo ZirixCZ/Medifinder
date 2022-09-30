@@ -3,7 +3,7 @@ import {View, Image, TouchableWithoutFeedback} from "react-native";
 
 const Navbar = ({navigation, children}) => (
     <View>
-        <View style={{flex: 1, flexDirection: "row", justifyContent: "space-between", padding: 15}}>
+        <View style={{display: "flex", height: "content", flexDirection: "row", justifyContent: "space-between", padding: 15}}>
             <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
                 <Image source={require("../../assets/BackButtonNavbar.svg")} style={{width: 35, height: 35}} />
             </TouchableWithoutFeedback>
