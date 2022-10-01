@@ -1,5 +1,8 @@
 import express from "express";
 import fetch from "node-fetch";
+import fs from "fs";
+
+
 
 const app = express();
 const port = 8080;
@@ -41,6 +44,14 @@ app.get("/diagnosis", async (req: any, res: any) => {
     res.send("fuck");
   }
   res.send(await abc.json());
+});
+
+
+app.get("/doctors", (req: any, res: any) => {
+  fs.readFile('./assets/doctors.json', "utf8", function(err, data){
+    if(err) throw err;
+    res.send(data);
+});
 });
 
 app.listen(port, () => {
