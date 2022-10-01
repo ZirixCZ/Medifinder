@@ -36,7 +36,7 @@ const DocSearchField = ({navigation}) => {
                     <View style={{display: "flex", flexDirection: "column"}}>
                         <Text style={{marginLeft: "1rem"}}>Váš věk</Text>
                         <TextInput
-                            style={{height: 40, borderWidth: 1, margin: 12, marginLeft: "1rem", padding: 12}}
+                            style={{borderRadius: 7, height: 40, borderWidth: 1, margin: 12, marginLeft: "1rem", padding: 12}}
                             onChangeText={(e) => setAge(e)}
                             value={age}
                             maxLength={3}

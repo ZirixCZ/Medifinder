@@ -1,9 +1,14 @@
-import {Button, StyleSheet, View, Pressable, Text, Image} from "react-native";
+import {Image, Pressable, StyleSheet, Text, View} from "react-native";
 import Navbar from "./Navbar";
 import Header from "./Header/Header";
-import React from "react";
+import React, {useState} from "react";
+import CustomDropdown from "./CustomDropdown";
+import {colorRed, symptoms} from "../constants";
 
 const DocSearchDiagnosis = ({navigation}) => {
+
+    const [field, setField] = useState(null);
+
     return (
         <View style={styles.container}>
 
@@ -16,16 +21,29 @@ const DocSearchDiagnosis = ({navigation}) => {
                     height: 'calc(100vh - 250px)',
                     width: "100%",
                     display: "flex",
-                    justifyContent: "flex-end",
+                    justifyContent: "flex-start",
                     alignItems: "center"
                 }}>
-                    <View style={styles.warningSquare}>
-                        <Image style={styles.logoInline} source={require('../../assets/TriangleWarning.svg')} />
-                        <Text style={[styles.text, {fontSize: 14, lineHeight: 17, width: "15rem"}]}>Výsledky diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte zde pro více info.</Text>
+                    <View style={{display: "flex", flexDirection: "column", width: "100%", marginTop: "2rem"}}>
+                        <CustomDropdown
+                            data={symptoms}
+                            placeholder={"Hledej příznak"}
+                            placeholderFinder={"Hledej příznak"}
+                            onSelect={(item, index) => setField(item)}
+                            padding={12}
+                        />
                     </View>
-                    <Pressable style={styles.button}>
-                        <Text style={styles.text}>Pokračovat</Text>
-                    </Pressable>
+                    <View style={{display: "flex", justifyContent: "flex-end", alignItems: "center", height: "75%"}}>
+                        <View style={styles.warningSquare}>
+                            <Image style={styles.logoInline} source={require('../../assets/TriangleWarning.svg')}/>
+                            <Text style={[styles.text, {fontSize: 14, lineHeight: 17, width: "15rem"}]}>Výsledky
+                                diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte
+                                zde pro více info.</Text>
+                        </View>
+                        <Pressable style={[styles.button, field ? {backgroundColor: colorRed} : {backgroundColor: '#BDBDBD'}]}>
+                            <Text style={styles.text}>Pokračovat</Text>
+                        </Pressable>
+                    </View>
                 </View>
             </Navbar>
         </View>
@@ -69,7 +87,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 115,
         borderRadius: 32,
         elevation: 3,
-        backgroundColor: '#BDBDBD',
     },
     text: {
         fontSize: 16,
