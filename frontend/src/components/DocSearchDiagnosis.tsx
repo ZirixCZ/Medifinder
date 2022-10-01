@@ -1,12 +1,22 @@
 import {Image, Pressable, StyleSheet, Text, View} from "react-native";
 import Navbar from "./Navbar";
 import Header from "./Header/Header";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CustomDropdown from "./CustomDropdown";
-import {colorRed, symptoms} from "../constants";
+import {colorRed} from "../constants";
 
 const DocSearchDiagnosis = ({navigation}) => {
-    const [field, setField] = useState(null);
+    const [fields, setFields] = useState(null);
+    const [value, setValue] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/doctors").then((res) => {
+            res.json().then((json) => {
+                setFields(json);
+                console.log(json)
+            })
+        })
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -26,15 +36,21 @@ const DocSearchDiagnosis = ({navigation}) => {
                         alignItems: "center",
                     }}
                 >
-                    <View style={{display: "flex", flexDirection: "column", width: "100%", marginTop: "2rem"}}>
-                        <CustomDropdown
-                            data={symptoms}
-                            placeholder={"Hledej příznak"}
-                            placeholderFinder={"Hledej příznak"}
-                            onSelect={(item, index) => setField(item)}
-                            padding={12}
-                        />
-                    </View>
+                    {
+                        fields ?
+                            <View style={{display: "flex", flexDirection: "column", width: "100%", marginTop: "2rem"}}>
+                                <CustomDropdown
+                                    data={fields.map(s => s['E']).filter((v, i, a) => a.indexOf(v) === i)}
+                                    placeholder={"Hledej příznak"}
+                                    placeholderFinder={"Hledej příznak"}
+                                    onSelect={(item, index) => setValue(item)}
+                                    padding={12}
+                                />
+                            </View>
+                            :
+                            <></>
+                    }
+
                     <View style={{display: "flex", justifyContent: "flex-end", alignItems: "center", height: "75%"}}>
                         <View style={styles.warningSquare}>
                             <Image style={styles.logoInline} source={require("../../assets/TriangleWarning.svg")} />
@@ -44,8 +60,8 @@ const DocSearchDiagnosis = ({navigation}) => {
                             </Text>
                         </View>
                         <Pressable
-                            style={[styles.button, field ? {backgroundColor: colorRed} : {backgroundColor: "#BDBDBD"}]}
-                            onPress={() => (field ? navigation.navigate("doctorsbyfield") : {})}
+                            style={[styles.button, value ? {backgroundColor: colorRed} : {backgroundColor: "#BDBDBD"}]}
+                            onPress={() => (value ? navigation.navigate("doctorsbyfield") : {})}
                         >
                             <Text style={styles.text}>Pokračovat</Text>
                         </Pressable>

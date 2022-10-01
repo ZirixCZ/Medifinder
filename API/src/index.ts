@@ -1,11 +1,12 @@
 import express from "express";
 import fetch from "node-fetch";
 import fs from "fs";
-
-
+import cors from "cors";
 
 const app = express();
 const port = 8080;
+
+app.use(cors())
 
 app.get("/", (req: any, res: any) => {
   res.send("Hello world!");

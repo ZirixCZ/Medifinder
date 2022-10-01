@@ -1,6 +1,5 @@
 import {Image, Pressable, StyleSheet, Text, TouchableWithoutFeedback, View} from "react-native";
 import Navbar from "./Navbar";
-import Header from "./Header/Header";
 import React from "react";
 
 const DoctorsByField = ({navigation}) => {
