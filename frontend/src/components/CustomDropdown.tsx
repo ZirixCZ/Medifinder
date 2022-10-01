@@ -3,7 +3,14 @@ import SelectDropdown from "react-native-select-dropdown";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {colorRed} from "../constants";
 
-const CustomDropdown = ({data, placeholder, placeholderFinder, onSelect, padding = 10}) => (
+const CustomDropdown = ({
+    data,
+    placeholder,
+    placeholderFinder,
+    onSelect,
+    rowToTextParsing = (item, index) => item,
+    padding = 10,
+}) => (
     <View style={{padding: padding}}>
         <SelectDropdown
             data={data}
@@ -14,9 +21,7 @@ const CustomDropdown = ({data, placeholder, placeholderFinder, onSelect, padding
             buttonTextAfterSelection={(selectedItem, index) => {
                 return selectedItem;
             }}
-            rowTextForSelection={(item, index) => {
-                return item;
-            }}
+            rowTextForSelection={rowToTextParsing}
             buttonStyle={styles.dropdown1BtnStyle}
             buttonTextStyle={styles.dropdown1BtnTxtStyle}
             renderDropdownIcon={(isOpened) => {
