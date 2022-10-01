@@ -11,14 +11,14 @@ const DoctorsByField = ({route, navigation}) => {
                 <View style={{paddingLeft: 15, paddingRight: 0}}>
                     <Text style={{fontSize: 16, paddingBottom: 20}}>
                         Výsledky hledání lékařů podle
-                        <br />
+                        {"\n"}
                         filtrovaného oboru.
                     </Text>
                     <Text style={{fontSize: 16, width: "90%"}}>
                         Podrobnosti zobrazíte kliknutím na kartu s lékařem.
                     </Text>
                     <Text style={{fontSize: 16, color: "gray", width: "90%"}}>
-                        <br />
+                        {"\n"}
                         Počet výsledků: 3
                     </Text>
                 </View>
