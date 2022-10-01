@@ -1,14 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Text, TextInput, View} from "react-native";
+import {symptoms} from "../constants";
 import Header from "./Header/Header";
 import Navbar from "./Navbar";
 import CustomDropdown from "./CustomDropdown";
 
 const gender = ["Muž", "Žena"];
-const countries = ["Egypt", "Canada", "Australia", "Ireland"];
 const DocSearchField = ({navigation}) => {
 
+    const [pickedSymptom, setPickedSymptom] = useState("aaa");
     const [age, setAge] = useState(null);
+
+    useEffect(() => {
+        // fetch("http://localhost:8080/symptoms").then((res) => {
+        //     res.json().then((res) => {
+        //
+        //     })
+        // })
+    }, [])
+
+    useEffect(()=> {
+        console.log('123')
+        console.log(pickedSymptom)
+    }, [pickedSymptom])
 
     return (
         <Navbar navigation={navigation}>
@@ -39,12 +53,13 @@ const DocSearchField = ({navigation}) => {
                         />
                     </View>
                     <View style={{display: "flex", flexDirection: "column", marginTop: "1rem"}}>
-                        <Text style={{marginLeft: "1rem"}}>Symptomy</Text>
+                        <Text style={{marginLeft: "1rem"}}>{symptoms[pickedSymptom]?.Name}</Text>
                         <CustomDropdown
-                            data={gender}
+                            data={symptoms}
                             placeholder={"Symptomy"}
                             placeholderFinder={"Symptomy"}
-                            onSelect={(item, index) => navigation.navigate("doctorsbyfield")}
+                            onSelect={(item, index) => {setPickedSymptom(index); console.log("abcdfrantisek"); console.log(item.Name)}}
+                            // rowToTextParsing={(item, index) => item.Name}
                             padding={12}
                         />
                     </View>
