@@ -80,7 +80,7 @@ const HomeScreen = ({navigation}) => {
             >
                 <TouchableWithoutFeedback
                     onPress={() => {
-                        navigation.navigate("docsearchfield");
+                        navigation.navigate("docsearchdiagnosis");
                         setDoctor(false);
                     }}
                 >
@@ -95,7 +95,7 @@ const HomeScreen = ({navigation}) => {
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback
                     onPress={() => {
-                        navigation.navigate("docsearchdiagnosis");
+                        navigation.navigate("selfdiagnosesearch");
                         setDoctor(false);
                     }}
                 >

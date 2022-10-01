@@ -6,7 +6,6 @@ import Navbar from "./Navbar";
 import CustomDropdown from "./CustomDropdown";
 
 const SelfDiagnosesSearch = ({navigation}) => {
-
     const [symptom, setSymptom] = useState(null);
     const [symptom1, setSymptom1] = useState(null);
     const [age, setAge] = useState(undefined);
@@ -18,12 +17,12 @@ const SelfDiagnosesSearch = ({navigation}) => {
         //
         //     })
         // })
-    }, [])
+    }, []);
 
-    useEffect(()=> {
-        console.log('123')
-        console.log(symptom)
-    }, [symptom])
+    useEffect(() => {
+        console.log("123");
+        console.log(symptom);
+    }, [symptom]);
 
     return (
         <Navbar navigation={navigation}>
@@ -31,16 +30,30 @@ const SelfDiagnosesSearch = ({navigation}) => {
                 header={"Hledat lékaře\npomocí samodiagnózy"}
                 subHeader="Hledejte lékaře podle zdravotnického oboru praxe."
             />
-            <View style={{display: "flex", justifyContent: "space-between", marginTop: "2rem", height: "calc(100vh - 300px)"}}>
+            <View
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "2rem",
+                    height: "calc(100vh - 300px)",
+                }}
+            >
                 <View style={{display: "flex", flexDirection: "column", justifyContent: "flex-start"}}>
                     <View style={{display: "flex", flexDirection: "column"}}>
                         <Text style={{marginLeft: "1rem"}}>Váš věk</Text>
                         <TextInput
-                            style={{borderRadius: 7, height: 40, borderWidth: 1, margin: 12, marginLeft: "1rem", padding: 12}}
+                            style={{
+                                borderRadius: 7,
+                                height: 40,
+                                borderWidth: 1,
+                                margin: 12,
+                                marginLeft: "1rem",
+                                padding: 12,
+                            }}
                             onChangeText={(e) => setAge(e)}
                             value={age}
                             maxLength={3}
-                            keyboardType='numeric'
+                            keyboardType="numeric"
                         />
                     </View>
                     <View style={{display: "flex", flexDirection: "column", marginTop: "1rem"}}>
@@ -63,7 +76,12 @@ const SelfDiagnosesSearch = ({navigation}) => {
                             padding={12}
                         />
                     </View>
-                    <View style={[symptom ? {display: "flex"} : {display: "none"}, {flexDirection: "column", marginTop: "1rem"}]}>
+                    <View
+                        style={[
+                            symptom ? {display: "flex"} : {display: "none"},
+                            {flexDirection: "column", marginTop: "1rem"},
+                        ]}
+                    >
                         <Text style={{marginLeft: "1rem"}}>Vyberte symptom</Text>
                         <CustomDropdown
                             data={symptoms}
@@ -74,7 +92,19 @@ const SelfDiagnosesSearch = ({navigation}) => {
                         />
                     </View>
                 </View>
-                <Pressable style={[styles.button, symptom && symptom1 && (age !== undefined && age >= 0 && age <= 120) && gender ? {backgroundColor: colorRed} : {backgroundColor: "#BDBDBD"}]} onPress={() => symptom && symptom1 && (age !== undefined && age >= 0 && age <= 120) && gender ? navigation.navigate("doctorsbyfield") : null}>
+                <Pressable
+                    style={[
+                        styles.button,
+                        symptom && symptom1 && age !== undefined && age >= 0 && age <= 120 && gender
+                            ? {backgroundColor: colorRed}
+                            : {backgroundColor: "#BDBDBD"},
+                    ]}
+                    onPress={() =>
+                        symptom && symptom1 && age !== undefined && age >= 0 && age <= 120 && gender
+                            ? navigation.navigate("DiagnoseTypeOfIllness")
+                            : null
+                    }
+                >
                     <Text style={styles.text}>Pokračovat</Text>
                 </Pressable>
             </View>
@@ -84,16 +114,16 @@ const SelfDiagnosesSearch = ({navigation}) => {
 
 const styles = StyleSheet.create({
     button: {
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         paddingVertical: 20,
         paddingHorizontal: 115,
         borderRadius: 32,
-        elevation: 3
+        elevation: 3,
     },
     text: {
-        color: "white"
-    }
-})
+        color: "white",
+    },
+});
 
 export default SelfDiagnosesSearch;

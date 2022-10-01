@@ -29,9 +29,18 @@ const DoctorsByField = ({navigation}) => {
                         alignItems: "center",
                     }}
                 >
-                    <Image style={[styles.card, {marginTop: "2rem"}]} source={require("../../assets/Doctor1.svg")} />
-                    <Image style={styles.card} source={require("../../assets/Doctor2.svg")} />
-                    <Image style={styles.card} source={require("../../assets/Doctor3.svg")} />
+                    <Pressable onPress={() => navigation.navigate("doctorsbyfieldinformation")}>
+                        <Image
+                            style={[styles.card, {marginTop: "2rem"}]}
+                            source={require("../../assets/Doctor1.svg")}
+                        />
+                    </Pressable>
+                    <Pressable onPress={() => navigation.navigate("doctorsbyfieldinformation")}>
+                        <Image style={styles.card} source={require("../../assets/Doctor2.svg")} />
+                    </Pressable>
+                    <Pressable onPress={() => navigation.navigate("doctorsbyfieldinformation")}>
+                        <Image style={styles.card} source={require("../../assets/Doctor3.svg")} />
+                    </Pressable>
                 </View>
                 <TouchableWithoutFeedback
                     onPress={() => {
