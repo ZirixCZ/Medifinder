@@ -23,18 +23,18 @@ const HomeScreen = ({navigation}) => {
                         <Image
                             style={[
                                 styles.logoSmall,
-                                {marginLeft: "3rem", marginRight: "0rem", marginBottom: "0rem", marginTop: "1rem"},
+                                {marginLeft: "3rem", marginRight: "0rem", marginBottom: "0rem", marginTop: "2rem"},
                             ]}
                             source={require("../../assets/MedifinderLogo.svg")}
                         />
                         <Image
-                            style={[styles.logoTiny, {marginLeft: "0.5rem", marginBottom: "0rem", marginTop: "1rem"}]}
+                            style={[styles.logoTiny, {marginLeft: "0.5rem", marginBottom: "0rem", marginTop: "2.5rem"}]}
                             source={require("../../assets/Account.svg")}
                         />
                         <Image
                             style={[
                                 styles.logoTiny,
-                                {marginLeft: "0.5rem", marginRight: "3rem", marginBottom: "0rem", marginTop: "1rem"},
+                                {marginLeft: "0.5rem", marginRight: "3rem", marginBottom: "0rem", marginTop: "2.5rem"},
                             ]}
                             source={require("../../assets/Settings.svg")}
                         />
