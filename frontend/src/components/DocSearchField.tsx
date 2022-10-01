@@ -9,8 +9,7 @@ const DocSearchField = ({navigation}) => {
 
     const [symptom, setSymptom] = useState(null);
     const [symptom1, setSymptom1] = useState(null);
-    const [symptom2, setSymptom2] = useState(null);
-    const [age, setAge] = useState(null);
+    const [age, setAge] = useState(undefined);
     const [gender, setGender] = useState(null);
 
     useEffect(() => {
@@ -38,7 +37,7 @@ const DocSearchField = ({navigation}) => {
                         <Text style={{marginLeft: "1rem"}}>Váš věk</Text>
                         <TextInput
                             style={{height: 40, borderWidth: 1, margin: 12, marginLeft: "1rem", padding: 12}}
-                            onChangeText={() => setAge}
+                            onChangeText={(e) => setAge(e)}
                             value={age}
                             maxLength={3}
                             keyboardType='numeric'
@@ -75,7 +74,7 @@ const DocSearchField = ({navigation}) => {
                         />
                     </View>
                 </View>
-                <Pressable style={[styles.button, symptom && symptom1 ? {backgroundColor: colorRed} : {backgroundColor: "#BDBDBD"}]} onPress={() => symptom && symptom1 ? navigation.navigate("doctorsbyfield") : null}>
+                <Pressable style={[styles.button, symptom && symptom1 && (age !== undefined && age >= 0 && age <= 120) && gender ? {backgroundColor: colorRed} : {backgroundColor: "#BDBDBD"}]} onPress={() => symptom && symptom1 && (age !== undefined && age >= 0 && age <= 120) && gender ? navigation.navigate("doctorsbyfield") : null}>
                     <Text style={styles.text}>Pokračovat</Text>
                 </Pressable>
             </View>
