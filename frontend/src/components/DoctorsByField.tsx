@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Header from "./Header/Header";
 import React from "react";
 
-const DoctorsByField = ({route, navigation}) => {
+const DoctorsByField = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Navbar navigation={navigation}>

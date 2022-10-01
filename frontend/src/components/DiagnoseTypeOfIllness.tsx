@@ -1,9 +1,10 @@
-import {Button, StyleSheet, View, Pressable, Text, Image} from "react-native";
+import {Image, Pressable, StyleSheet, Text, View} from "react-native";
 import Navbar from "./Navbar";
-import Header from "./Header/Header";
 import React from "react";
+import {colorRed} from "../constants";
+import Header from "./Header/Header";
 
-const DocSearchDiagnosis = ({navigation}) => {
+const DiagnoseTypeOfIllness = ({navigation}) => {
     return (
         <View style={styles.container}>
 
@@ -16,16 +17,24 @@ const DocSearchDiagnosis = ({navigation}) => {
                     height: 'calc(100vh - 250px)',
                     width: "100%",
                     display: "flex",
-                    justifyContent: "flex-end",
+                    justifyContent: "space-evenly",
                     alignItems: "center"
                 }}>
-                    <View style={styles.warningSquare}>
-                        <Image style={styles.logoInline} source={require('../../assets/TriangleWarning.svg')} />
-                        <Text style={[styles.text, {fontSize: 14, lineHeight: 17, width: "15rem"}]}>Výsledky diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte zde pro více info.</Text>
+                    <View style={{display: "flex", justifyContent: "flex-end", alignItems: "center", width: "100%", height: "100%"}}>
+                        <View style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", height: "70%"}}>
+                        <Image style={[styles.graph]} source={require('../../assets/GraphZapalPlic.svg')} />
+                        <Image style={[styles.graph]} source={require('../../assets/GraphCernyKasel.svg')} />
+                        <Image style={[styles.graph]} source={require('../../assets/GraphSpalnicky.svg')} />
+                        <Image style={[styles.graph]} source={require('../../assets/GraphChripka.svg')} />
+                        </View>
+                        <View style={styles.warningSquare}>
+                            <Image style={styles.logoInline} source={require('../../assets/TriangleWarning.svg')} />
+                            <Text style={[styles.text, {fontSize: 14, lineHeight: 17, width: "15rem"}]}>Výsledky diagnózy jsou pouze orientační a nejedná se o profesionální lékařské vyšetření. Klikněte zde pro více info.</Text>
+                        </View>
+                        <Pressable style={styles.button}>
+                            <Text style={styles.text}>Pokračovat</Text>
+                        </Pressable>
                     </View>
-                    <Pressable style={styles.button}>
-                        <Text style={styles.text}>Pokračovat</Text>
-                    </Pressable>
                 </View>
             </Navbar>
         </View>
@@ -69,7 +78,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 115,
         borderRadius: 32,
         elevation: 3,
-        backgroundColor: '#BDBDBD',
+        backgroundColor: colorRed,
     },
     text: {
         fontSize: 16,
@@ -82,7 +91,11 @@ const styles = StyleSheet.create({
     logoInline: {
         height: 41,
         width: 41,
+    },
+    graph: {
+        width: 258,
+        height: 37
     }
 })
 
-export default DocSearchDiagnosis;
+export default DiagnoseTypeOfIllness;
