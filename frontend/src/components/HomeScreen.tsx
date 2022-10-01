@@ -17,8 +17,13 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <View>
-            <TouchableWithoutFeedback onPress={() => console.log("false")}>
-            <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
+            <TouchableWithoutFeedback onPress={() => setDoctor(false)}>
+                <View style={[styles.container, doctor ? {opacity: 0.4} : {opacity: 1}]}>
+                    <View style={{display: "flex", flexDirection: "row"}}>
+                        <Image style={[styles.logoSmall, {marginLeft: "3rem", marginRight: "0rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/MedifinderLogo.svg')} />
+                        <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Account.svg')} />
+                        <Image style={[styles.logoTiny, {marginLeft: "0.5rem", marginRight: "3rem", marginBottom: "0rem", marginTop: "1rem"}]} source={require('../../assets/Settings.svg')} />
+                    </View>
                 <View>
                     <Text style={styles.title}>Vítejte v appce</Text>
                     <View>
@@ -27,15 +32,15 @@ const HomeScreen = ({navigation}) => {
                 </View>
                 <View style={styles.centerContainer}>
                     <TouchableWithoutFeedback onPress={() => setDoctor(!doctor)}>
-                        <Image style={styles.logo} source={require('../../assets/DocSearch.svg')} />
+                        <Image style={[styles.logo, {marginTop: "2rem"}]} source={require('../../assets/DocSearch.svg')} />
                     </TouchableWithoutFeedback>
-                    <Image style={styles.logo} source={require('../../assets/DocMaps.svg')} />
+                    <Image style={[styles.logo, {marginTop: "2rem"}]} source={require('../../assets/DocMaps.svg')} />
                 </View>
             </View>
             </TouchableWithoutFeedback>
             <View style={doctor ? {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'} : {display: "none"}}>
                 <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchfield"); setDoctor(false)}}>
-                    <Image style={[styles.logo, {marginBottom: "4.5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
+                    <Image style={[styles.logo, {marginBottom: "2rem", marginTop: "5rem"}]} source={require('../../assets/docFieldSearch.svg')} />
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={() => {navigation.navigate("docsearchdiagnosis"); setDoctor(false)}}>
                     <Image style={styles.logo} source={require('../../assets/docDiagnosisSearch.svg')} />
@@ -48,7 +53,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        minHeight: "100vh",
+        minHeight: "100%",
         backgroundColor: "#fff",
         alignItems: "flex-start",
         justifyContent: "flex-start",
@@ -56,8 +61,8 @@ const styles = StyleSheet.create({
     centerContainer: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "space-evenly",
-        width: "100%"
+        justifyContent: "flex-start",
+        width: "100%",
     },
     paragraphContainer: {},
     paragraph: {
@@ -77,6 +82,17 @@ const styles = StyleSheet.create({
         width: 322,
         height: 196,
     },
+    logoPadding: {
+        paddingTop: "1rem",
+    },
+    logoSmall: {
+        width: 223,
+        height: 52,
+    },
+    logoTiny: {
+        width: 35,
+        height: 35,
+    }
 });
 
 export default HomeScreen;
