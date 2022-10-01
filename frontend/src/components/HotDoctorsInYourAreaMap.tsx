@@ -156,6 +156,42 @@ const HotDoctorsInYourAreaMap = ({navigation}) => (
             </svg>`,
                             size: [24, 24],
                         },
+                        {
+                            id: "15",
+                            position: {lat: 50.0372, lng: 15.8002},
+                            icon: `
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="green" stroke="green">
+              <path d="M11.9 1a8.6 8.6 0 00-8.6 8.6c0 4.35 7.2 12.05 8.42 13.33a.24.24 0 00.35 0c1.22-1.27 8.42-9 8.42-13.33A8.6 8.6 0 0011.9 1zm0 11.67A3.07 3.07 0 1115 9.6a3.07 3.07 0 01-3.1 3.07z"/>
+            </svg>`,
+                            size: [24, 24],
+                        },
+                        {
+                            id: "16",
+                            position: {lat: 50.0375, lng: 15.8005},
+                            icon: `
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="green" stroke="green">
+              <path d="M11.9 1a8.6 8.6 0 00-8.6 8.6c0 4.35 7.2 12.05 8.42 13.33a.24.24 0 00.35 0c1.22-1.27 8.42-9 8.42-13.33A8.6 8.6 0 0011.9 1zm0 11.67A3.07 3.07 0 1115 9.6a3.07 3.07 0 01-3.1 3.07z"/>
+            </svg>`,
+                            size: [24, 24],
+                        },
+                        {
+                            id: "17",
+                            position: {lat: 50.0379, lng: 15.8008},
+                            icon: `
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="red" stroke="red">
+              <path d="M11.9 1a8.6 8.6 0 00-8.6 8.6c0 4.35 7.2 12.05 8.42 13.33a.24.24 0 00.35 0c1.22-1.27 8.42-9 8.42-13.33A8.6 8.6 0 0011.9 1zm0 11.67A3.07 3.07 0 1115 9.6a3.07 3.07 0 01-3.1 3.07z"/>
+            </svg>`,
+                            size: [24, 24],
+                        },
+                        {
+                            id: "18",
+                            position: {lat: 50.0379, lng: 15.8008},
+                            icon: `
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="red" stroke="red">
+              <path d="M11.9 1a8.6 8.6 0 00-8.6 8.6c0 4.35 7.2 12.05 8.42 13.33a.24.24 0 00.35 0c1.22-1.27 8.42-9 8.42-13.33A8.6 8.6 0 0011.9 1zm0 11.67A3.07 3.07 0 1115 9.6a3.07 3.07 0 01-3.1 3.07z"/>
+            </svg>`,
+                            size: [24, 24],
+                        },
                     ] as MapMarker[]
                 }
                 mapOptions={{
