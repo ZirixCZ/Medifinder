@@ -5,7 +5,7 @@ import Header from "./Header/Header";
 import Navbar from "./Navbar";
 import CustomDropdown from "./CustomDropdown";
 
-const DocSearchField = ({navigation}) => {
+const SelfDiagnosesSearch = ({navigation}) => {
 
     const [symptom, setSymptom] = useState(null);
     const [symptom1, setSymptom1] = useState(null);
@@ -28,7 +28,7 @@ const DocSearchField = ({navigation}) => {
     return (
         <Navbar navigation={navigation}>
             <Header
-                header={"Hledat lékaře \npodle oboru"}
+                header={"Hledat lékaře\npomocí samodiagnózy"}
                 subHeader="Hledejte lékaře podle zdravotnického oboru praxe."
             />
             <View style={{display: "flex", justifyContent: "space-between", marginTop: "2rem", height: "calc(100vh - 300px)"}}>
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DocSearchField;
+export default SelfDiagnosesSearch;

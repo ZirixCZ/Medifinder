@@ -14,7 +14,7 @@ const DocSearchDiagnosis = ({navigation}) => {
 
             <Navbar navigation={navigation}>
                 <View>
-                    <Header header={"Hledat lékaře\npomocí samodiagnózy"}
+                    <Header header={"Hledat lékaře\npodle oboru"}
                             subHeader="Hledejte lékaře podle zadání vlastní diagnózy z nabídky."/>
                 </View>
                 <View style={{
