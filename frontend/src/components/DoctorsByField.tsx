@@ -1,10 +1,9 @@
-import {Image, Pressable, StyleSheet, Text, View} from "react-native";
+import {Image, Pressable, StyleSheet, Text, TouchableWithoutFeedback, View} from "react-native";
 import Navbar from "./Navbar";
 import Header from "./Header/Header";
 import React from "react";
 
 const DoctorsByField = ({route, navigation}) => {
-    const {specialization} = route.params;
     return (
         <View style={styles.container}>
             <Navbar navigation={navigation}>
@@ -24,10 +23,9 @@ const DoctorsByField = ({route, navigation}) => {
                 </View>
                 <View
                     style={{
-                        height: "calc(100vh - 300px)",
                         width: "100%",
                         display: "flex",
-                        justifyContent: "flex-start",
+                        justifyContent: "flex-end",
                         alignItems: "center",
                     }}
                 >
@@ -35,6 +33,24 @@ const DoctorsByField = ({route, navigation}) => {
                     <Image style={styles.card} source={require("../../assets/Doctor2.svg")} />
                     <Image style={styles.card} source={require("../../assets/Doctor3.svg")} />
                 </View>
+                <TouchableWithoutFeedback
+                    onPress={() => {
+                        navigation.navigate("hotdoctorsinyourarea");
+                    }}
+                >
+                    <Image
+                        style={{
+                            position: "fixed",
+                            bottom: 0,
+                            left: 0,
+                            width: "100%",
+                            height: 120,
+                            borderTopRightRadius: 50,
+                            borderTopLeftRadius: 50,
+                        }}
+                        source={require("../../assets/MapBottom.svg")}
+                    />
+                </TouchableWithoutFeedback>
             </Navbar>
         </View>
     );

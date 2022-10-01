@@ -16,7 +16,7 @@ const DocSearchField = ({navigation}) => {
                 data={countries}
                 placeholder={"Vyberte obor..."}
                 placeholderFinder={"Hledejte obor..."}
-                onSelect={(item, index) => navigation.navigate("doctorsbyfield", {specialization: item})}
+                onSelect={(item, index) => navigation.navigate("doctorsbyfield")}
                 padding={20}
             />
         </Navbar>
